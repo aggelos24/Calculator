@@ -5,178 +5,179 @@
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<meta charset="utf-8" />
 	<title> Calculator </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 <body>
-    <div class="container" ng-app="Calculator" ng-controller="myCtrl">
-        <div class="main">
-            <span class="red_letters" ng-show="error"> Exchange rate is not available. </span>
-            <div class="numbers">  {{ number_1 }} <br>
-                    {{ operator }} {{ number_2 }} <br>
-                    <hr ng-show="show_hr">
-                    {{ result }} </div> <br>
-            <button class="fist_line" ng-disabled="disable_numbers_clear_backspace" ng-click="clear()"> Clear </button>
-            <button class="fist_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <button class="fist_line" ng-click="reset()"> Reset </button> <br> <br>
-            <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(1)"> 1 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(2)"> 2 </button>
-            <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(3)"> 3 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button>
-            <button ng-disabled="disable_operators_except_conversion" ng-click="operation('+')"> + </button> <br>
-            <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(5)"> 5 </button>
-            <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(6)"> 6 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button>
-            <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button> <button ng-disabled="disable_operators_except_conversion" ng-click="operation('-')"> - </button> <br>
-            <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button>
-            <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(9)"> 9 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
-            <button class="backspace" ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
-            <button ng-show="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
-            <button ng-disabled="disable_operators_except_conversion" ng-click="operation('x')"> x </button> <br>
-            <button ng-disabled="disable_equal" ng-click="equal()"> = </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
-            <button class="backspace" ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
-            <button ng-hide="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
-        </div>
-    </div>
+	<div class="container" ng-app="Calculator" ng-controller="myCtrl">
+		<div class="main">
+			<span class="red_letters" ng-show="error"> Exchange rate is not available. </span>
+			<div class="numbers">  {{ number_1 }} <br>
+				{{ operator }} {{ number_2 }} <br>
+				<hr ng-show="show_hr">
+                    		{{ result }}
+			</div> <br>
+			<button class="fist_line" ng-disabled="disable_numbers_clear_backspace" ng-click="clear()"> Clear </button>
+			<button class="fist_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <button class="fist_line" ng-click="reset()"> Reset </button> <br> <br>
+			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(1)"> 1 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(2)"> 2 </button>
+			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(3)"> 3 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button>
+			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('+')"> + </button> <br>
+			<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(5)"> 5 </button>
+			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(6)"> 6 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button>
+			<button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button> <button ng-disabled="disable_operators_except_conversion" ng-click="operation('-')"> - </button> <br>
+			<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button>
+			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(9)"> 9 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
+			<button class="backspace" ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
+			<button ng-show="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
+			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('x')"> x </button> <br>
+			<button ng-disabled="disable_equal" ng-click="equal()"> = </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
+			<button class="backspace" ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
+			<button ng-hide="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
+		</div>
+	</div>
 <script>
 app = angular.module("Calculator", []);                                     //create module
 app.controller("myCtrl", function($scope, $http) {                          //create controller
-    set_wide = function () {                                                //function that makes the calculator responsive
-        if (window.innerWidth > 800) {                                      //if window's width is more than 800 pixels
-            $scope.wide = 1;                                                //enable wide-view mode
-        }
-        else {                                                              //if window's width is less than 800 pixels
-            $scope.wide = 0;                                                //disable wide-view mode
-        }
-    };
-    set_wide();                                                             //execute set_wide function
+	set_wide = function () {                                                //function that makes the calculator responsive
+		if (window.innerWidth > 800) {                                      //if window's width is more than 800 pixels
+			$scope.wide = 1;                                                //enable wide-view mode
+		}
+		else {                                                              //if window's width is less than 800 pixels
+			$scope.wide = 0;                                                //disable wide-view mode
+		}
+	};
+	set_wide();                                                             //execute set_wide function
+	
+	/*
+	This is a finite-state machine, there are states that change the function of the keys depending on user input.
+	State 1: This is the initial state when the page is loaded, or when the user presses the "Reset" button on any state.
+	State 2: When user presses the "€ to $", while on state 1 or 4.
+	State 3: When user presses the button of any operator except "€ to $" one, while on state 1.
+	State 4: When user presses the "=" button, while on state 3.
+	*/
+	change_state = function (state_number) {					//function that executes the change of states
+		$scope.state_number = state_number;					//save the function parameter to scope variable
+		if (state_number == 1) {						//if state equals 1
+			$http.get("http://api.fixer.io/latest")				//get the exchange rate with a HTTP request
+			.then(function (response) {
+				$scope.exchange_rate = response.data.rates.USD;		//save it to scope variable
+				$scope.error = 0;
+				$scope.disable_conversion = 0;				//"€ to $" button is enabled
+			}, function errorCallback() {					//if error occured
+				$scope.error = 1;
+				$scope.disable_conversion = 1;				//"€ to $" button is disabled
+			});
+			$scope.number_1 = 0;                                            //make number_1 0
+			$scope.number_2 = null;                                         //make number_2 null
+			$scope.result = null;                                           //make result null
+			$scope.operator = null;                                         //make operator null
+			$scope.show_hr = 0;                                             //hr button is not displayed
+			$scope.disable_equal = 1;                                       //"=" button is disabled
+			$scope.disable_numbers_clear_backspace = 0;                     //numbers, clear and backspace button are enabled
+			$scope.disable_operators_except_conversion = 0;                 //operators except "€ to $" buttons are enabled
+		}
+		else if (state_number == 2) {						//if state equals 2
+			$scope.disable_equal = 1;					//"=" button is disabled
+			$scope.disable_numbers_clear_backspace = 1;			//numbers, clear and backspace button are disabled
+			$scope.disable_operators_except_conversion = 1;			//operators except "€ to $" buttons are disabled
+			$scope.disable_conversion = 1;					//"€ to $" button is disabled
+		}
+		else if (state_number == 3) {						//if state equals 3
+			$scope.number_2 = 0;						//make number_2 0
+			$scope.disable_equal = 0;					//"=" button is enabled
+			$scope.disable_numbers_clear_backspace = 0;			//numbers, clear and backspace button are enabled
+			$scope.disable_operators_except_conversion = 1;			//operators except "€ to $" buttons are disabled
+			$scope.disable_conversion = 1;					//"€ to $" button is disabled
+		}
+		else if (state_number == 4) {						//if state equals 4
+			$scope.show_hr = 1;						//hr button is displayed
+			$scope.disable_equal = 1;					//"=" button is disabled
+			$scope.disable_numbers_clear_backspace = 1;			//numbers, clear and backspace button are disabled
+			$scope.disable_operators_except_conversion = 1;			//operators except "€ to $" buttons are disabled
+			if ($scope.error == 0) {					//if no error occured
+				$scope.disable_conversion = 0;				//"€ to $" button is enabled
+			}
+			else {								//if error occured
+				$scope.disable_conversion = 1;				//"€ to $" button is disabled
+			}
+		}
+	};
+	
+	change_state(1);								//set state to 1
+	$scope.add_digit = function (digit) {						//when a number button is pressed
+		if ($scope.state_number == 1) {						//if state equals 1
+			if ($scope.number_1 == 0) {					//if number_1 equals 0
+				$scope.number_1 = digit;				//assign digit to number_1
+			}
+			else {								//if number_1 doesnt equal 0
+				$scope.number_1 = ($scope.number_1 * 10) + digit;	//left shift number_1, then add digit
+			}
+		}
+		else if ($scope.state_number == 3) {					//if state equals 3
+			if ($scope.number_2 == 0) {					//if number_2 equals 0
+				$scope.number_2 = digit;				//assign digit to number_2
+			}
+			else {								//if number_2 doesnt equal 0
+				$scope.number_2 = ($scope.number_2 * 10) + digit;	//left shift number_2, then add digit
+			}
+		}
+	};
+	
+	$scope.remove_digit = function () {
+		if ($scope.state_number == 1) {						//if state equals 1
+			if ($scope.number_1 != 0) {					//if number_1 doesnt equal 0
+				$scope.number_1 = parseInt($scope.number_1 / 10);	//right shift number_1
+			}
+		}
+		else if ($scope.state_number == 3) {					//if state equals 3
+			if ($scope.number_2 != 0) {					//if number_2 doesnt equal 0
+				$scope.number_2 = parseInt($scope.number_2 / 10);	//right shift number_2
+			}
+		}
+	};
+	
+	$scope.operation = function (operator) {					//when an operator button except "€ to $" is pressed
+		$scope.operator = operator;						//save the function parameter to scope variable
+		change_state(3);							//set state to 3
+	};
     
-    /*
-    This is a Finite-state machine, there are states that change the function of the keys depending on user input.
-    State 1: This is the initial state when the page will be loaded, or when the user presses the "Reset" button on any state.
-    State 2: When user presses the "€ to $", while on state 1 or 4.
-    State 3: When user presses the button of any operator except "€ to $" one, while on state 1.
-    State 4: When user presses the "=" button, while on state 3.
-    */
-    change_state = function (state_number) {                                //function that executes the change of states
-        $scope.state_number = state_number;                                 //save the function parameter to scope variable
-        if (state_number == 1) {                                            //if state equals 1
-            $http.get("http://api.fixer.io/latest")                         //get the exchange rate with a HTTP request
-            .then(function (response) {
-                $scope.exchange_rate = response.data.rates.USD;             //save it to scope variable
-                $scope.error = 0;
-                $scope.disable_conversion = 0;                              //"€ to $" button is enabled
-            }, function errorCallback() {                                   //if error occured
-                $scope.error = 1;
-                $scope.disable_conversion = 1;                              //"€ to $" button is disabled
-            });
-            $scope.number_1 = 0;                                            //make number_1 0
-            $scope.number_2 = null;                                         //make number_2 null
-            $scope.result = null;                                           //make result null
-            $scope.operator = null;                                         //make operator null
-            $scope.show_hr = 0;                                             //hr button is not displayed
-            $scope.disable_equal = 1;                                       //"=" button is disabled
-            $scope.disable_numbers_clear_backspace = 0;                     //numbers, clear and backspace button are enabled
-            $scope.disable_operators_except_conversion = 0;                 //operators except "€ to $" buttons are enabled
-        }
-        else if (state_number == 2) {                                       //if state equals 2
-            $scope.disable_equal = 1;                                       //"=" button is disabled
-            $scope.disable_numbers_clear_backspace = 1;                     //numbers, clear and backspace button are disabled
-            $scope.disable_operators_except_conversion = 1;                 //operators except "€ to $" buttons are disabled
-            $scope.disable_conversion = 1;                                  //"€ to $" button is disabled
-        }
-        else if (state_number == 3) {                                       //if state equals 3
-            $scope.number_2 = 0;                                            //make number_2 0
-            $scope.disable_equal = 0;                                       //"=" button is enabled
-            $scope.disable_numbers_clear_backspace = 0;                     //numbers, clear and backspace button are enabled
-            $scope.disable_operators_except_conversion = 1;                 //operators except "€ to $" buttons are disabled
-            $scope.disable_conversion = 1;                                  //"€ to $" button is disabled
-        }
-        else if (state_number == 4) {                                       //if state equals 4
-            $scope.show_hr = 1;                                             //hr button is displayed
-            $scope.disable_equal = 1;                                       //"=" button is disabled
-            $scope.disable_numbers_clear_backspace = 1;                     //numbers, clear and backspace button are disabled
-            $scope.disable_operators_except_conversion = 1;                 //operators except "€ to $" buttons are disabled
-            if ($scope.error == 0) {                                        //if no error occured
-                $scope.disable_conversion = 0;                              //"€ to $" button is enabled
-            }
-            else {                                                          //if error occured
-                $scope.disable_conversion = 1;                              //"€ to $" button is disabled
-            }
-        }
-    };
-    
-    change_state(1);                                                        //state equals 1
-    $scope.add_digit = function (digit) {                                   //when a number button is pressed
-        if ($scope.state_number == 1) {                                     //if state equals 1
-            if ($scope.number_1 == 0) {                                     //if number_1 equals 0
-                $scope.number_1 = digit;                                    //assign digit to number_1
-            }
-            else {                                                          //if number_1 doesnt equal 0
-                $scope.number_1 = ($scope.number_1 * 10) + digit;           //left shift number_1, then add digit
-            }
-        }
-        else if ($scope.state_number == 3) {                                //if state equals 3
-            if ($scope.number_2 == 0) {                                     //if number_2 equals 0
-                $scope.number_2 = digit;                                    //assign digit to number_2
-            }
-            else {                                                          //if number_2 doesnt equal 0
-                $scope.number_2 = ($scope.number_2 * 10) + digit;           //left shift number_2, then add digit
-            }
-        }
-    };
-    
-    $scope.remove_digit = function () {
-        if ($scope.state_number == 1) {                                     //if state equals 1
-            if ($scope.number_1 != 0) {                                     //if number_1 doesnt equal 0
-                $scope.number_1 = parseInt($scope.number_1 / 10);           //right shift number_1
-            }
-        }
-        if ($scope.state_number == 3) {                                     //if state equals 3
-            if ($scope.number_2 != 0) {                                     //if number_2 doesnt equal 0
-                $scope.number_2 = parseInt($scope.number_2 / 10);           //right shift number_2
-            }
-        }
-    };
-    
-    $scope.operation = function (operator) {                                //when an operator button except "€ to $" is pressed
-        $scope.operator = operator;                                         //save the function parameter to scope variable
-        change_state(3);                                                    //state equals 3
-    };
-    
-    $scope.clear = function () {                                            //when "Clear" button is pressed
-        if ($scope.state_number == 1) {                                     //if state equals 1
-            $scope.number_1 = 0;                                            //make number_1 0
-        }
-        if ($scope.state_number == 3) {                                     //if state equals 3
-            $scope.number_2 = 0;                                            //make number_2 0
-        }
-    };
-    
-    $scope.equal = function () {                                            //when "=" button is pressed
-        if ($scope.operator == "+") {                                       //if "+" button was previously pressed
-            $scope.result = $scope.number_1 + $scope.number_2;              //execute addition
-        }
-        else if ($scope.operator == "-") {                                  //if "-" button was previously pressed
-            $scope.result = $scope.number_1 - $scope.number_2;              //execute subtraction
-        }
-        else if ($scope.operator == "÷") {                                  //if "÷" button was previously pressed
-            $scope.result = $scope.number_1 / $scope.number_2;              //execute division
-        }
-        else if ($scope.operator == "x") {                                  //if "x" button was previously pressed
-            $scope.result = $scope.number_1 * $scope.number_2;              //execute multiplication
-        }
-        change_state(4);                                                    //state equals 4
-    };
-    
-    $scope.conversion = function () {                                       //when "€ to $" button is pressed
-        if ($scope.state_number == 1) {                                     //if state equals 1
-            $scope.number_1 = $scope.number_1 * $scope.exchange_rate;       //convert number_1 to dollars
-        }
-        if ($scope.state_number == 4) {                                     //if state equals 4
-            $scope.result = $scope.result * $scope.exchange_rate;           //convert result to dollars
-        }
-        change_state(2);                                                    //state equals 2
-    };
-    
-    $scope.reset = function () {                                            //when "Reset" button is pressed
-        change_state(1);                                                    //state equals 1
-    };
+	$scope.clear = function () {							//when "Clear" button is pressed
+		if ($scope.state_number == 1) {						//if state equals 1
+			$scope.number_1 = 0;						//make number_1 0
+		}
+		else if ($scope.state_number == 3) {					//if state equals 3
+			$scope.number_2 = 0;						//make number_2 0
+		}
+	};
+	
+	$scope.equal = function () {							//when "=" button is pressed
+		if ($scope.operator == "+") {						//if "+" button was previously pressed
+			$scope.result = $scope.number_1 + $scope.number_2;		//execute addition
+		}
+		else if ($scope.operator == "-") {					//if "-" button was previously pressed
+			$scope.result = $scope.number_1 - $scope.number_2;		//execute subtraction
+        	}
+		else if ($scope.operator == "÷") {					//if "÷" button was previously pressed
+			$scope.result = $scope.number_1 / $scope.number_2;		//execute division
+		}
+		else if ($scope.operator == "x") {					//if "x" button was previously pressed
+			$scope.result = $scope.number_1 * $scope.number_2;		//execute multiplication
+		}
+		change_state(4);							//set state to 4
+	};
+	
+	$scope.conversion = function () {						//when "€ to $" button is pressed
+		if ($scope.state_number == 1) {						//if state equals 1
+			$scope.number_1 = $scope.number_1 * $scope.exchange_rate;	//convert number_1 to dollars
+		}
+		else if ($scope.state_number == 4) {					//if state equals 4
+			$scope.result = $scope.result * $scope.exchange_rate;		//convert result to dollars
+		}
+		change_state(2);							//set state to 2
+	};
+	
+	$scope.reset = function () {							//when "Reset" button is pressed
+		change_state(1);							//set state to 1
+	};
 });
 </script>
 </body>
