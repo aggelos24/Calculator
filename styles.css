@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 body {
 	background-color: #3399ff;
@@ -8,39 +8,39 @@ body {
 	margin: 0;
 }
 div.container {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 div.main {
 	background-color: #ffffff;
-    padding: 1%;
+	padding: 1%;
 }
 button {
-    font-size: 150%;
-    border: 1px solid #000000;
-    padding: 7px;
-    margin-top: 5px;
-    border-radius: 15px;
-    cursor: pointer;
+	font-size: 150%;
+	border: 1px solid #000000;
+	padding: 7px;
+	margin-top: 5px;
+	border-radius: 15px;
+	cursor: pointer;
 }
 button:disabled {
-    cursor: default;
+	cursor: default;
 }
 button.backspace {
-    font-size: 110%;
+	font-size: 110%;
 }
 button.fist_line {
-    font-size: 90%;
+	font-size: 90%;
 }
 span.red_letters {
 	color: red;
 }
 div.numbers {
-    width: 100%;
-    text-align: right;
+	width: 100%;
+	text-align: right;
 }
 hr {
-    margin-top: 1px;
-    margin-bottom: 1px;
-    border-width: 2px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	border-width: 2px;
 }
