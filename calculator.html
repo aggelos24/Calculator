@@ -35,17 +35,17 @@
 		</div>
 	</div>
 <script>
-app = angular.module("Calculator", []);                                     //create module
-app.controller("myCtrl", function($scope, $http) {                          //create controller
-	set_wide = function () {                                                //function that makes the calculator responsive
-		if (window.innerWidth > 800) {                                      //if window's width is more than 800 pixels
-			$scope.wide = 1;                                                //enable wide-view mode
+app = angular.module("Calculator", []);							//create module
+app.controller("myCtrl", function($scope, $http) {					//create controller
+	set_wide = function () {							//function that makes the calculator responsive
+		if (window.innerWidth > 800) {						//if window's width is more than 800 pixels
+			$scope.wide = 1;						//enable wide-view mode
 		}
-		else {                                                              //if window's width is less than 800 pixels
-			$scope.wide = 0;                                                //disable wide-view mode
+		else {									//if window's width is less than 800 pixels
+			$scope.wide = 0;						//disable wide-view mode
 		}
 	};
-	set_wide();                                                             //execute set_wide function
+	set_wide();									//execute set_wide function
 	
 	/*
 	This is a finite-state machine, there are states that change the function of the keys depending on user input.
