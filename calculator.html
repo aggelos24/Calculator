@@ -16,8 +16,8 @@
 				<hr ng-show="show_hr">
                     		{{ result }}
 			</div> <br>
-			<button class="fist_line" ng-disabled="disable_numbers_clear_backspace" ng-click="clear()"> Clear </button>
-			<button class="fist_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <button class="fist_line" ng-click="reset()"> Reset </button> <br> <br>
+			<button class="first_line" ng-disabled="disable_numbers_clear_backspace" ng-click="clear()"> Clear </button>
+			<button class="first_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <button class="first_line" ng-click="reset()"> Reset </button> <br> <br>
 			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(1)"> 1 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(2)"> 2 </button>
 			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(3)"> 3 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button>
 			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('+')"> + </button> <br>
