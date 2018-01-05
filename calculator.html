@@ -11,24 +11,24 @@
 	<div class="container" ng-app="Calculator" ng-controller="myCtrl">
 		<div class="main">
 			<span class="red_letters" ng-show="error"> Exchange rate is not available. </span>
-			<div class="numbers">  {{ number_1 }} <br>
-				{{ operator }} {{ number_2 }} <br>
+			<div class="numbers">  {{ number_1 }} <br />
+				{{ operator }} {{ number_2 }} <br />
 				<hr ng-show="show_hr">
                     		{{ result }}
-			</div> <br>
+			</div> <br />
 			<button class="first_line" ng-disabled="disable_numbers_clear_backspace" ng-click="clear()"> Clear </button>
-			<button class="first_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <button class="first_line" ng-click="reset()"> Reset </button> <br> <br>
+			<button class="first_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <button class="first_line" ng-click="reset()"> Reset </button> <br /> <br />
 			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(1)"> 1 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(2)"> 2 </button>
 			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(3)"> 3 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button>
-			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('+')"> + </button> <br>
+			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('+')"> + </button> <br />
 			<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(5)"> 5 </button>
 			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(6)"> 6 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button>
-			<button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button> <button ng-disabled="disable_operators_except_conversion" ng-click="operation('-')"> - </button> <br>
+			<button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button> <button ng-disabled="disable_operators_except_conversion" ng-click="operation('-')"> - </button> <br />
 			<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button>
 			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(9)"> 9 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
 			<button class="backspace" ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
 			<button ng-show="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
-			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('x')"> x </button> <br>
+			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('x')"> x </button> <br />
 			<button ng-disabled="disable_equal" ng-click="equal()"> = </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
 			<button class="backspace" ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
 			<button ng-hide="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
@@ -93,7 +93,7 @@ app.controller("myCtrl", function($scope, $http) {					//create controller
 			$scope.disable_equal = true;					//"=" button is disabled
 			$scope.disable_numbers_clear_backspace = true;			//numbers, clear and backspace button are disabled
 			$scope.disable_operators_except_conversion = true;		//operators except "€ to $" buttons are disabled
-			if ($scope.error == 0) {					//if no error occured
+			if ($scope.error == false) {					//if no error occured
 				$scope.disable_conversion = false;			//"€ to $" button is enabled
 			}
 			else {								//if error occured
