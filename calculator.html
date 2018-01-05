@@ -183,10 +183,16 @@ app.controller('myCtrl', function($scope, $http) {					//create controller
 		change_state(1);							//set state to 1
 	};
 	
+    	var myWindow = angular.element($window);
+    	myWindow.bind('resize', function () {						//when window is resized
+		$scope.$apply(function () {
+			set_wide();							//call set_wide function
+		});
+	});
 	
 	//Initialization
 	get_exchange_rate();								//get exchange rate
-	set_wide();									//execute set_wide function
+	set_wide();									//call set_wide function
 	change_state(1);								//set state to 1
 });
 </script>
