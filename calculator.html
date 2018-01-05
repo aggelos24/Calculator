@@ -35,8 +35,8 @@
 		</div>
 	</div>
 <script>
-app = angular.module("Calculator", []);							//create module
-app.controller("myCtrl", function($scope, $http) {					//create controller
+app = angular.module('Calculator', []);							//create module
+app.controller('myCtrl', function($scope, $http) {					//create controller
 	set_wide = function () {							//function that makes the calculator responsive
 		if (window.innerWidth > 800) {						//if window's width is more than 800 pixels
 			$scope.wide = true;						//enable wide-view mode
@@ -57,7 +57,7 @@ app.controller("myCtrl", function($scope, $http) {					//create controller
 	change_state = function (state_number) {					//function that executes the change of states
 		$scope.state_number = state_number;					//save the function parameter to scope variable
 		if (state_number == 1) {						//if state equals 1
-			$http.get("http://api.fixer.io/latest")				//get the exchange rate with a HTTP request
+			$http.get('http://api.fixer.io/latest')				//get the exchange rate with a HTTP request
 			.then(function (response) {
 				$scope.exchange_rate = response.data.rates.USD;		//save it to scope variable
 				$scope.error = false;
@@ -150,16 +150,16 @@ app.controller("myCtrl", function($scope, $http) {					//create controller
 	};
 	
 	$scope.equal = function () {							//when "=" button is pressed
-		if ($scope.operator == "+") {						//if "+" button was previously pressed
+		if ($scope.operator == '+') {						//if "+" button was previously pressed
 			$scope.result = $scope.number_1 + $scope.number_2;		//execute addition
 		}
-		else if ($scope.operator == "-") {					//if "-" button was previously pressed
+		else if ($scope.operator == '-') {					//if "-" button was previously pressed
 			$scope.result = $scope.number_1 - $scope.number_2;		//execute subtraction
         	}
-		else if ($scope.operator == "÷") {					//if "÷" button was previously pressed
+		else if ($scope.operator == '÷') {					//if "÷" button was previously pressed
 			$scope.result = $scope.number_1 / $scope.number_2;		//execute division
 		}
-		else if ($scope.operator == "x") {					//if "x" button was previously pressed
+		else if ($scope.operator == 'x') {					//if "x" button was previously pressed
 			$scope.result = $scope.number_1 * $scope.number_2;		//execute multiplication
 		}
 		change_state(4);							//set state to 4
