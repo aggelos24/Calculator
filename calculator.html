@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<meta charset="utf-8" />
 	<title> Calculator </title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 <body>
 	<div class="container" ng-app="Calculator" ng-controller="myCtrl">
@@ -39,20 +39,20 @@ app = angular.module("Calculator", []);							//create module
 app.controller("myCtrl", function($scope, $http) {					//create controller
 	set_wide = function () {							//function that makes the calculator responsive
 		if (window.innerWidth > 800) {						//if window's width is more than 800 pixels
-			$scope.wide = 1;						//enable wide-view mode
+			$scope.wide = true;						//enable wide-view mode
 		}
 		else {									//if window's width is less than 800 pixels
-			$scope.wide = 0;						//disable wide-view mode
+			$scope.wide = false;						//disable wide-view mode
 		}
 	};
 	set_wide();									//execute set_wide function
 	
 	/*
 	This is a finite-state machine, there are states that change the function of the keys depending on user input.
-	State 1: This is the initial state when the page is loaded, or when the user presses the "Reset" button on any state.
-	State 2: When user presses the "€ to $", while on state 1 or 4.
-	State 3: When user presses the button of any operator except "€ to $" one, while on state 1.
-	State 4: When user presses the "=" button, while on state 3.
+	State 1: This is the initial state when the page is loaded, or when the user presses the "Reset" button in any state.
+	State 2: When user presses the "€ to $", while in state 1 or 4.
+	State 3: When user presses the button of any operator except "€ to $" one, while in state 1.
+	State 4: When user presses the "=" button, while in state 3.
 	*/
 	change_state = function (state_number) {					//function that executes the change of states
 		$scope.state_number = state_number;					//save the function parameter to scope variable
@@ -60,44 +60,44 @@ app.controller("myCtrl", function($scope, $http) {					//create controller
 			$http.get("http://api.fixer.io/latest")				//get the exchange rate with a HTTP request
 			.then(function (response) {
 				$scope.exchange_rate = response.data.rates.USD;		//save it to scope variable
-				$scope.error = 0;
-				$scope.disable_conversion = 0;				//"€ to $" button is enabled
+				$scope.error = false;
+				$scope.disable_conversion = false;			//"€ to $" button is enabled
 			}, function errorCallback() {					//if error occured
-				$scope.error = 1;
-				$scope.disable_conversion = 1;				//"€ to $" button is disabled
+				$scope.error = true;
+				$scope.disable_conversion = true;			//"€ to $" button is disabled
 			});
-			$scope.number_1 = 0;                                            //make number_1 0
-			$scope.number_2 = null;                                         //make number_2 null
-			$scope.result = null;                                           //make result null
-			$scope.operator = null;                                         //make operator null
-			$scope.show_hr = 0;                                             //hr button is not displayed
-			$scope.disable_equal = 1;                                       //"=" button is disabled
-			$scope.disable_numbers_clear_backspace = 0;                     //numbers, clear and backspace button are enabled
-			$scope.disable_operators_except_conversion = 0;                 //operators except "€ to $" buttons are enabled
+			$scope.number_1 = 0;						//make number_1 0
+			$scope.number_2 = null;						//make number_2 null
+			$scope.result = null;						//make result null
+			$scope.operator = null;						//make operator null
+			$scope.show_hr = false;						//hr button is not displayed
+			$scope.disable_equal = true;					//"=" button is disabled
+			$scope.disable_numbers_clear_backspace = false;			//numbers, clear and backspace button are enabled
+			$scope.disable_operators_except_conversion = false;		//operators except "€ to $" buttons are enabled
 		}
 		else if (state_number == 2) {						//if state equals 2
-			$scope.disable_equal = 1;					//"=" button is disabled
-			$scope.disable_numbers_clear_backspace = 1;			//numbers, clear and backspace button are disabled
-			$scope.disable_operators_except_conversion = 1;			//operators except "€ to $" buttons are disabled
-			$scope.disable_conversion = 1;					//"€ to $" button is disabled
+			$scope.disable_equal = true;					//"=" button is disabled
+			$scope.disable_numbers_clear_backspace = true;			//numbers, clear and backspace button are disabled
+			$scope.disable_operators_except_conversion = true;		//operators except "€ to $" buttons are disabled
+			$scope.disable_conversion = true;				//"€ to $" button is disabled
 		}
 		else if (state_number == 3) {						//if state equals 3
 			$scope.number_2 = 0;						//make number_2 0
-			$scope.disable_equal = 0;					//"=" button is enabled
-			$scope.disable_numbers_clear_backspace = 0;			//numbers, clear and backspace button are enabled
-			$scope.disable_operators_except_conversion = 1;			//operators except "€ to $" buttons are disabled
-			$scope.disable_conversion = 1;					//"€ to $" button is disabled
+			$scope.disable_equal = false;					//"=" button is enabled
+			$scope.disable_numbers_clear_backspace = false;			//numbers, clear and backspace button are enabled
+			$scope.disable_operators_except_conversion = true;		//operators except "€ to $" buttons are disabled
+			$scope.disable_conversion = true;				//"€ to $" button is disabled
 		}
 		else if (state_number == 4) {						//if state equals 4
-			$scope.show_hr = 1;						//hr button is displayed
-			$scope.disable_equal = 1;					//"=" button is disabled
-			$scope.disable_numbers_clear_backspace = 1;			//numbers, clear and backspace button are disabled
-			$scope.disable_operators_except_conversion = 1;			//operators except "€ to $" buttons are disabled
+			$scope.show_hr = true;						//hr button is displayed
+			$scope.disable_equal = true;					//"=" button is disabled
+			$scope.disable_numbers_clear_backspace = true;			//numbers, clear and backspace button are disabled
+			$scope.disable_operators_except_conversion = true;		//operators except "€ to $" buttons are disabled
 			if ($scope.error == 0) {					//if no error occured
-				$scope.disable_conversion = 0;				//"€ to $" button is enabled
+				$scope.disable_conversion = false;			//"€ to $" button is enabled
 			}
 			else {								//if error occured
-				$scope.disable_conversion = 1;				//"€ to $" button is disabled
+				$scope.disable_conversion = true;			//"€ to $" button is disabled
 			}
 		}
 	};
