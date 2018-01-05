@@ -15,10 +15,13 @@ div.main {
 	background-color: #ffffff;
 	padding: 1%;
 }
+div.result {
+	margin-right: 7px;
+}
 button {
 	font-size: 150%;
 	border: 1px solid #000000;
-	padding: 7px;
+	padding: 9px;
 	margin-top: 5px;
 	border-radius: 15px;
 	cursor: pointer;
@@ -26,11 +29,14 @@ button {
 button:disabled {
 	cursor: default;
 }
-button.backspace {
-	font-size: 110%;
-}
 button.first_line {
 	font-size: 90%;
+}
+button.backspace {
+	padding: 9px 2px;
+}
+button.minus {
+	padding: 9px 12px; 
 }
 span.red_letters {
 	color: red;
