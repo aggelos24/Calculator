@@ -34,17 +34,10 @@
 			<button ng-hide="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
 		</div>
 	</div>
+	
 <script>
 app = angular.module('Calculator', []);							//create module
 app.controller('myCtrl', function($scope, $http) {					//create controller
-	set_wide = function () {							//function that makes the calculator responsive
-		if (window.innerWidth > 800) {						//if window's width is more than 800 pixels
-			$scope.wide = true;						//enable wide-view mode
-		}
-		else {									//if window's width is less than 800 pixels
-			$scope.wide = false;						//disable wide-view mode
-		}
-	};
 	
 	get_exchange_rate = function() {						//function for getting the exchange rate
 		$http.get('http://api.fixer.io/latest?symbols=USD')			//get the exchange rate with a HTTP request
@@ -58,13 +51,23 @@ app.controller('myCtrl', function($scope, $http) {					//create controller
 		});
 	};
 	
+	set_wide = function () {							//function that makes the calculator responsive
+		if (window.innerWidth > 800) {						//if window's width is more than 800 pixels
+			$scope.wide = true;						//enable wide-view mode
+		}
+		else {									//if window's width is less than 800 pixels
+			$scope.wide = false;						//disable wide-view mode
+		}
+	};
+	
 	/*
-	This is a finite-state machine, there are states that change the function of the keys depending on user input.
+	This is a finite-state machine, states change the function of the keys depending on user input.
 	State 1: This is the initial state when the page is loaded, or when the user presses the "Reset" button in any state.
 	State 2: When user presses the "€ to $", while in state 1 or 4.
 	State 3: When user presses the button of any operator except "€ to $" one, while in state 1.
 	State 4: When user presses the "=" button, while in state 3.
 	*/
+	
 	change_state = function (state_number) {					//function that executes the change of states
 		$scope.state_number = state_number;					//save the function parameter to scope variable
 		if (state_number == 1) {						//if state equals 1
