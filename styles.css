@@ -1,12 +1,14 @@
 * {
 	box-sizing: border-box;
 }
+
 body {
 	background-color: #3399ff;
 	font-family: "Verdana";
 	font-size: 120%;
 	margin: 0;
 }
+
 button {
 	font-size: 150%;
 	border: 1px solid #000000;
@@ -15,38 +17,48 @@ button {
 	border-radius: 15px;
 	cursor: pointer;
 }
-div.container {
-	display: flex;
-	justify-content: center;
-}
-div.main {
-	background-color: #ffffff;
-	padding: 1%;
-}
-div.result {
-	margin-right: 7px;
-}
+
 button:disabled {
 	cursor: default;
 }
-button.first_line {
-	font-size: 90%;
-}
-button.backspace {
-	padding: 9px 2px;
-}
-button.minus {
-	padding: 9px 12px; 
-}
-span.red_letters {
-	color: red;
-}
-div.numbers {
-	width: 100%;
-	text-align: right;
-}
+
 hr {
 	margin-top: 1px;
 	margin-bottom: 1px;
 	border-width: 2px;
+}
+
+div.container {
+	display: flex;
+	justify-content: center;
+}
+
+div.main {
+	background-color: #ffffff;
+	padding: 1%;
+}
+
+div.result {
+	margin-right: 7px;
+}
+
+button.first_line {
+	font-size: 90%;
+}
+
+button.backspace {
+	padding: 9px 2px;
+}
+
+button.minus {
+	padding: 9px 12px; 
+}
+
+span.red_letters {
+	color: red;
+}
+
+div.numbers {
+	width: 100%;
+	text-align: right;
 }
