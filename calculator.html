@@ -10,7 +10,7 @@
 <body>
 	<div class="container" ng-app="Calculator" ng-controller="myCtrl">
 		<div class="main">
-			<span class="red_letters" ng-show="error"> Exchange rate <br /> is not available. </span>
+			<span class="error_message" ng-show="error"> Exchange rate <br /> is not available. </span>
 			<div class="numbers">  {{ number_1 }} <br />
 				{{ operator }} {{ number_2 }} <br />
 				<hr ng-show="show_hr">
