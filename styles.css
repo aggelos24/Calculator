@@ -43,6 +43,10 @@ div.result {
 	margin-right: 7px;
 }
 
+div.top_buttons, div.main_buttons {
+ 	margin-top: 5px;
+}
+
 button.first_line {
 	font-size: 90%;
 }
