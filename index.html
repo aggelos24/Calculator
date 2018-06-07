@@ -184,6 +184,12 @@ app.controller('myCtrl', function($scope, $http, $window) {				//create controll
 	};
 	
 	$scope.reset = function () {							//when "Reset" button is pressed
+		if ($scope.error == false) {						//if no error occured
+			$scope.disable_conversion = false;				//"€ to $" button is enabled
+		}
+		else {									//if error occured
+			$scope.disable_conversion = true;				//"€ to $" button is disabled
+		}
 		change_state(1);							//set state to 1
 	};
 	
