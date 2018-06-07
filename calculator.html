@@ -5,33 +5,37 @@
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<meta charset="utf-8" />
 	<title> Calculator </title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
 	<div class="container" ng-app="Calculator" ng-controller="myCtrl">
 		<div class="main">
-			<span class="red_letters" ng-show="error"> Exchange rate is not available. </span>
+			<span class="red_letters" ng-show="error"> Exchange rate <br /> is not available. </span>
 			<div class="numbers">  {{ number_1 }} <br />
 				{{ operator }} {{ number_2 }} <br />
 				<hr ng-show="show_hr">
 				<div class="result"> {{ result }} </div>
-			</div> <br />
-			<button class="first_line" ng-disabled="disable_numbers_clear_backspace" ng-click="clear()"> Clear </button>
-			<button class="first_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <button class="first_line" ng-click="reset()"> Reset </button> <br /> <br />
-			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(1)"> 1 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(2)"> 2 </button>
-			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(3)"> 3 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button>
-			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('+')"> + </button> <br />
-			<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(5)"> 5 </button>
-			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(6)"> 6 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button>
-			<button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button> <button class="minus" ng-disabled="disable_operators_except_conversion" ng-click="operation('-')"> - </button> <br />
-			<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button>
-			<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(9)"> 9 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
-			<button class="backspace" ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
-			<button ng-show="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
-			<button ng-disabled="disable_operators_except_conversion" ng-click="operation('x')"> x </button> <br />
-			<button ng-disabled="disable_equal" ng-click="equal()"> = </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
-			<button class="backspace" ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
-			<button ng-hide="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
+			</div>
+			<div class="top_buttons">
+				<button class="first_line" ng-disabled="disable_numbers_clear_backspace" ng-click="clear()"> Clear </button>
+				<button class="first_line" ng-disabled="disable_conversion" ng-click="conversion()"> € to $ </button> <br ng-show="!wide" /> <button class="first_line" ng-click="reset()"> Reset </button>
+			</div>
+			<div class="main_buttons">
+				<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(1)"> 1 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(2)"> 2 </button>
+				<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(3)"> 3 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button>
+				<button ng-disabled="disable_operators_except_conversion" ng-click="operation('+')"> + </button> <br />
+				<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(4)"> 4 </button> <button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(5)"> 5 </button>
+				<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(6)"> 6 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button>
+				<button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button> <button class="minus" ng-disabled="disable_operators_except_conversion" ng-click="operation('-')"> - </button> <br />
+				<button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(7)"> 7 </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(8)"> 8 </button>
+				<button ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(9)"> 9 </button> <button ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
+				<button class="backspace" ng-show="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
+				<button ng-show="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
+				<button ng-disabled="disable_operators_except_conversion" ng-click="operation('x')"> x </button> <br />
+				<button ng-disabled="disable_equal" ng-click="equal()"> = </button> <button ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="add_digit(0)"> 0 </button>
+				<button class="backspace" ng-hide="wide" ng-disabled="disable_numbers_clear_backspace" ng-click="remove_digit()"> ← </button>
+				<button ng-hide="wide" ng-disabled="disable_operators_except_conversion" ng-click="operation('÷')"> ÷ </button>
+			</div>
 		</div>
 	</div>
 	
@@ -40,9 +44,9 @@ app = angular.module('Calculator', []);							//create module
 app.controller('myCtrl', function($scope, $http, $window) {				//create controller
 	
 	get_exchange_rate = function() {						//function for getting the exchange rate
-		$http.get('http://api.fixer.io/latest?symbols=USD')			//get the exchange rate with a HTTP request
-		.then(function (response) {
-			$scope.exchange_rate = response.data.rates.USD;			//save it to scope variable
+		$http.get('http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compact=y')
+		.then(function (response) {						//get the exchange rate with a HTTP request
+			$scope.exchange_rate = response.data.EUR_USD.val;		//save it to scope variable
 			$scope.error = false;
 			$scope.disable_conversion = false;				//"€ to $" button is enabled
 		}, function errorCallback() {						//if error occured
