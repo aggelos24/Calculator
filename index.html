@@ -44,7 +44,7 @@ app = angular.module('Calculator', []);							//create module
 app.controller('myCtrl', function($scope, $http, $window) {				//create controller
 	
 	get_exchange_rate = function() {						//function for getting the exchange rate
-		$http.get('http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compact=y')
+		$http.get('https://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compact=y')
 		.then(function (response) {						//get the exchange rate with a HTTP request
 			$scope.exchange_rate = response.data.EUR_USD.val;		//save it to scope variable
 			$scope.error = false;
