@@ -74,40 +74,41 @@ app.controller('myCtrl', function($scope, $http, $window) {				//create controll
 	
 	change_state = function (state_number) {					//function that executes the change of states
 		$scope.state_number = state_number;					//save the function parameter to scope variable
-		if (state_number == 1) {						//if state equals 1
-			$scope.number_1 = 0;						//make number_1 0
-			$scope.number_2 = null;						//make number_2 null
-			$scope.result = null;						//make result null
-			$scope.operator = null;						//make operator null
-			$scope.show_hr = false;						//hr button is not displayed
-			$scope.disable_equal = true;					//"=" button is disabled
-			$scope.disable_numbers_clear_backspace = false;			//numbers, clear and backspace button are enabled
-			$scope.disable_operators_except_conversion = false;		//operators except "€ to $" buttons are enabled
-		}
-		else if (state_number == 2) {						//if state equals 2
-			$scope.disable_equal = true;					//"=" button is disabled
-			$scope.disable_numbers_clear_backspace = true;			//numbers, clear and backspace button are disabled
-			$scope.disable_operators_except_conversion = true;		//operators except "€ to $" buttons are disabled
-			$scope.disable_conversion = true;				//"€ to $" button is disabled
-		}
-		else if (state_number == 3) {						//if state equals 3
-			$scope.number_2 = 0;						//make number_2 0
-			$scope.disable_equal = false;					//"=" button is enabled
-			$scope.disable_numbers_clear_backspace = false;			//numbers, clear and backspace button are enabled
-			$scope.disable_operators_except_conversion = true;		//operators except "€ to $" buttons are disabled
-			$scope.disable_conversion = true;				//"€ to $" button is disabled
-		}
-		else if (state_number == 4) {						//if state equals 4
-			$scope.show_hr = true;						//hr button is displayed
-			$scope.disable_equal = true;					//"=" button is disabled
-			$scope.disable_numbers_clear_backspace = true;			//numbers, clear and backspace button are disabled
-			$scope.disable_operators_except_conversion = true;		//operators except "€ to $" buttons are disabled
-			if ($scope.error == false) {					//if no error occured
-				$scope.disable_conversion = false;			//"€ to $" button is enabled
-			}
-			else {								//if error occured
+		switch(state_number) {
+			case 1:								//if state equals 1
+				$scope.number_1 = 0;					//make number_1 0
+				$scope.number_2 = null;					//make number_2 null
+				$scope.result = null;					//make result null
+				$scope.operator = null;					//make operator null
+				$scope.show_hr = false;					//hr button is not displayed
+				$scope.disable_equal = true;				//"=" button is disabled
+				$scope.disable_numbers_clear_backspace = false;		//numbers, clear and backspace button are enabled
+				$scope.disable_operators_except_conversion = false;	//operators except "€ to $" buttons are enabled
+				break;
+			case 2:								//if state equals 2
+				$scope.disable_equal = true;				//"=" button is disabled
+				$scope.disable_numbers_clear_backspace = true;		//numbers, clear and backspace button are disabled
+				$scope.disable_operators_except_conversion = true;	//operators except "€ to $" buttons are disabled
 				$scope.disable_conversion = true;			//"€ to $" button is disabled
-			}
+				break;
+			case 3:								//if state equals 3
+				$scope.number_2 = 0;					//make number_2 0
+				$scope.disable_equal = false;				//"=" button is enabled
+				$scope.disable_numbers_clear_backspace = false;		//numbers, clear and backspace button are enabled
+				$scope.disable_operators_except_conversion = true;	//operators except "€ to $" buttons are disabled
+				$scope.disable_conversion = true;			//"€ to $" button is disabled
+				break;
+			case 4:								//if state equals 4
+				$scope.show_hr = true;					//hr button is displayed
+				$scope.disable_equal = true;				//"=" button is disabled
+				$scope.disable_numbers_clear_backspace = true;		//numbers, clear and backspace button are disabled
+				$scope.disable_operators_except_conversion = true;	//operators except "€ to $" buttons are disabled
+				if ($scope.error == false) {				//if no error occured
+					$scope.disable_conversion = false;		//"€ to $" button is enabled
+				}
+				else {							//if error occured
+					$scope.disable_conversion = true;		//"€ to $" button is disabled
+				}
 		}
 	};
 	
